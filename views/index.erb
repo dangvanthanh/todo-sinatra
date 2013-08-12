@@ -13,4 +13,20 @@
 	</li>
 <% end %>	
 </ul>
+<div class="pagination-holder">
+	<div id="pagination" class="pagination"></div>
+</div>
 <a href="/new" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> Add</a></div>
+<script>
+	$(function() {
+		$('#pagination').pagination({
+			items: <%= @todos.count ? @todos.count : 0 %>,
+	    itemsOnPage: 5,
+	    displayedPages : 3,
+	    currentPage:<%= @page ? @page : 0 %>,
+	    prevText: 'Previous',
+	    nextText: 'Next',
+	    hrefTextPrefix: '?page='
+		});
+	});	
+</script>

@@ -2,7 +2,10 @@ require 'sinatra'
 require File.expand_path('../models/todo.rb', __FILE__)
 
 get '/' do
-	@todos = Todo.all.order(id: :desc)
+	@page = params[:page].to_i ? params[:page].to_i : 1
+	@page_size = 5
+	@offset = @page * @page_size
+	@todos = Todo.all.order(id: :desc).limit(@page_size).offset(@offset)
 	erb :index
 end
 
