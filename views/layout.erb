@@ -1,0 +1,25 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Todo Sinatra Application</title>
+	<link rel="stylesheet" href="/css/bootstrap.min.css">
+	<link rel="stylesheet" href="/css/bootstrap-glyphicons.css">
+	<link rel="stylesheet" href="/css/stylesheet.css">
+</head>
+<body>
+	<div class="nav-bar navbar-inverse">
+		<div class="container">
+			<a href="/" class="navbar-brand">Todo Application</a>
+		</div>
+	</div>
+	<div class="main">
+		<div class="container">
+			<%= yield %>
+		</div>
+	</div>
+	<script src="/js/jquery.min.js"></script>
+	<script src="/js/bootstrap.min.js"></script>
+	<script src="/js/app.js"></script>
+</body>
+</html>

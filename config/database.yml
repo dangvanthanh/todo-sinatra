@@ -1,0 +1,21 @@
+development:
+  adapter: mysql2
+  database: tododb
+  username: root
+  password: 
+  host: localhost
+  pool: 8
+
+test:
+  adapter: mysql2
+  database: myapp_test
+  username: root
+  password: password
+  host: localhost
+
+production:
+  adapter: mysql2
+  database: myapp_production
+  username: root
+  password: password
+  host: localhost

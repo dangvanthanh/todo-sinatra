@@ -1,0 +1,23 @@
+<% if @todo %>
+<form action="/edit/<%= @todo.id %>" method="POST">
+	<fieldset>
+		<input type="hidden" name="_method" value="put">
+		<div class="form-group">
+			<label for="content">Content</label>
+			<input type="text" class="form-control" placeholder="Content" name="content" value="<%= @todo[:content] %>">
+		</div>
+		<div class="form-group">
+			<label for="done">Done</label>
+			<% if @todo[:done] %>
+				<input type="checkbox" name="done" checked>
+			<% else %>
+				<input type="checkbox" name="done">	
+			<% end %>	
+		</div>
+		<div class="form-group">
+			<button class="btn btn-primary">Update</button>
+			<a href="/" class="btn btn-default">Cancel</a>
+		</div>
+	</fieldset>
+</form>
+<% end %>

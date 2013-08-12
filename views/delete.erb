@@ -1,0 +1,9 @@
+<% if @todo %>
+	<p>Are you sure you want to delete</p>
+	<blockquote><%= @todo[:content] %></blockquote>
+	<form action="/delete/<%= @todo[:id] %>" method="POST">
+		<input type="hidden" name="_method" value="delete">
+		<button class="btn btn-primary">OK</button>
+		<a href="/" class="btn btn-default">Cancel</a>
+	</form>
+<% end %>	
