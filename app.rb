@@ -7,9 +7,9 @@ get '/' do
   if !params[:page].nil?
 	   @page = params[:page].to_i 
   end
-	@page_size = 5
+	@page_size = 8
 	@offset = (@page * @page_size) - @page_size 
-	@total_record = Todo.all.count
+	@total_record = Todo.count
 	@todos = Todo.all.order(id: :desc).limit(@page_size).offset(@offset)
 	erb :index
 end
@@ -19,7 +19,10 @@ get '/new' do
 end	
 
 post '/new' do
-	Todo.create(:content => params[:content], :created => Time.now)
+	todo = Todo.new
+	todo.content = params[:content]
+	todo.created = Time.now
+	todo.save
 	redirect '/'
 end
 
@@ -31,7 +34,7 @@ end
 put '/edit/:id' do
 	todo = Todo.find(params[:id])
 	todo.content = params[:content]
-	todo.done = todo.done ? 0 : 1
+	todo.done = params[:done] ? 1 : 0
 	todo.save
 	redirect '/'
 end
