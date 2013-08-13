@@ -20,10 +20,10 @@
 <script>
 	$(function() {
 		$('#pagination').pagination({
-			items: <%= @todos.count ? @todos.count : 0 %>,
-	    itemsOnPage: 5,
+			items: <%= @total_record ? @total_record : 0 %>,
+	    itemsOnPage: <%= @page_size %>,
 	    displayedPages : 3,
-	    currentPage:<%= @page ? @page : 0 %>,
+	    currentPage:<%= @page ? @page : 1 %>,
 	    prevText: 'Previous',
 	    nextText: 'Next',
 	    hrefTextPrefix: '?page='
