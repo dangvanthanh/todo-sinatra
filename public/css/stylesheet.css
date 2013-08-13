@@ -25,3 +25,10 @@ a.navbar-brand {
 .is-done {
 	pointer-events: none;
 }
+
+.pagination a,
+.pagination span {
+	display: inline-block;
+	padding: 5px 15px;
+	border: 1px solid #ddd;
+}

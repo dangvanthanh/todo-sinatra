@@ -1,4 +1,5 @@
 require 'sinatra'
+require 'sinatra/reloader' if development?
 require File.expand_path('../models/todo.rb', __FILE__)
 
 get '/' do
